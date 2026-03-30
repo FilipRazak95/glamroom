@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glamroom | Kosmetický salon Hradec Králové</title>
+  <meta name="description" content="Glamroom – kosmetický salon v Hradci Králové. Úprava řas a obočí, cílená ošetření a kosmetické ošetření Celestetic. Rezervace na telefonu 733 208 131 nebo Instagramu @nikolaglam." />
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #2b2b2b;
+      background: #fffafc;
+      line-height: 1.6;
+    }
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    header {
+      background: linear-gradient(135deg, #fff3f8, #f8eefb);
+      padding: 20px 0 70px;
+      border-bottom: 1px solid #f1dbe7;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 52px;
+    }
+    .brand {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #b05b82;
+    }
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #4b3d44;
+      font-weight: 600;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .hero-card {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid #f1dbe7;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 12px 36px rgba(166, 110, 142, 0.12);
+    }
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #f7dce8;
+      color: #8f4265;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: 52px;
+      line-height: 1.08;
+      margin: 0 0 16px;
+      color: #2f1f28;
+    }
+    .hero p {
+      font-size: 18px;
+      margin: 0 0 28px;
+      color: #5b4a53;
+    }
+    .actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background: #b05b82;
+      color: white;
+    }
+    .btn-secondary {
+      background: white;
+      border-color: #e8c8d8;
+      color: #8f4265;
+    }
+    .info-box {
+      background: #fff;
+      border: 1px solid #f1dbe7;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 12px 36px rgba(166, 110, 142, 0.09);
+    }
+    .info-box h3 {
+      margin-top: 0;
+      margin-bottom: 18px;
+      color: #8f4265;
+      font-size: 22px;
+    }
+    .info-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #f5e6ee;
+    }
+    .info-item:last-child { border-bottom: none; }
+    section {
+      padding: 70px 0;
+    }
+    .section-title {
+      font-size: 34px;
+      margin: 0 0 12px;
+      color: #2f1f28;
+    }
+    .section-subtitle {
+      margin: 0 0 32px;
+      color: #6a5b62;
+      max-width: 760px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #f1dbe7;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 28px rgba(166, 110, 142, 0.08);
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #8f4265;
+      font-size: 22px;
+    }
+    .service {
+      padding: 18px 0;
+      border-bottom: 1px solid #f5e6ee;
+    }
+    .service:last-child { border-bottom: none; }
+    .service h4 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      color: #2f1f28;
+    }
+    .meta {
+      color: #8f4265;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .contact-card a {
+      color: #8f4265;
+      font-weight: 700;
+      text-decoration: none;
+      word-break: break-word;
+    }
+    footer {
+      padding: 28px 0 40px;
+      border-top: 1px solid #f1dbe7;
+      color: #7b6871;
+      text-align: center;
+      background: #fff;
+    }
+    @media (max-width: 860px) {
+      .hero,
+      .grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 { font-size: 40px; }
+      .hero-card { padding: 28px; }
+      nav { margin-bottom: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">GLAMROOM</div>
+        <div class="nav-links">
+          <a href="#sluzby">Služby</a>
+          <a href="#cenik">Ceník</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+      </nav>
+
+      <div class="hero">
+        <div class="hero-card">
+          <div class="badge">Kosmetický salon • Hradec Králové</div>
+          <h1>Krása, péče a sebevědomí na jednom místě.</h1>
+          <p>
+            V salonu Glamroom se zaměřujeme na úpravu řas a obočí, cílená ošetření
+            a profesionální kosmetické ošetření Celestetic. Dopřejte si péči, po které
+            bude vaše pleť svěží, hydratovaná a rozjasněná.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="tel:+420733208131">Objednat se</a>
+            <a class="btn btn-secondary" href="https://instagram.com/nikolaglam" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <h3>Rychlé informace</h3>
+          <div class="info-item"><strong>Salon:</strong><br />Glamroom</div>
+          <div class="info-item"><strong>Město:</strong><br />Hradec Králové</div>
+          <div class="info-item"><strong>Telefon:</strong><br /><a href="tel:+420733208131">733 208 131</a></div>
+          <div class="info-item"><strong>Instagram:</strong><br /><a href="https://instagram.com/nikolaglam" target="_blank" rel="noopener">@nikolaglam</a></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="sluzby">
+    <div class="container">
+      <h2 class="section-title">Služby</h2>
+      <p class="section-subtitle">
+        Vyberte si z oblíbených procedur pro obočí, řasy, rty i hloubkovou péči o pleť.
+        Každé ošetření je zaměřeno na přirozený, upravený a svěží vzhled.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Úprava řas a obočí</h3>
+          <div class="service">
+            <h4>Laminace obočí</h4>
+            <div class="meta">60 min • 890 Kč</div>
+            <div>
+              Populární metoda úpravy obočí pro plnější a vyrovnanější vzhled. Chloupky se zjemňují,
+              tvarují a vyživují, aby obočí působilo upraveně a přirozeně.
+            </div>
+          </div>
+          <div class="service">
+            <h4>Barvení řas a obočí + depilace</h4>
+            <div class="meta">30 min • 450 Kč</div>
+            <div>
+              Rychlá a efektivní úprava pro zvýraznění očí a čistý tvar obočí.
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Cílená ošetření</h3>
+          <div class="service">
+            <h4>Hydratace rtů</h4>
+            <div class="meta">30 min • 499 Kč</div>
+            <div>
+              Jemná péče o rty se zaměřením na hydrataci, hebkost a zdravý vzhled.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cenik" style="background:#fff;">
+    <div class="container">
+      <h2 class="section-title">Kosmetické ošetření Celestetic</h2>
+      <p class="section-subtitle">
+        Ošetření s kosmeceutiky Celestetic propojuje kosmetickou péči s aktivními látkami využívanými v dermatologii.
+        Péče je přizpůsobena aktuálnímu stavu pleti a může být zaměřena na čištění, obnovu, zklidnění nebo regeneraci.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <div class="service">
+            <h4>Základní hloubkové ošetření</h4>
+            <div class="meta">60 min • 1 690 Kč</div>
+            <div>
+              Hloubkové čištění pleti se zaměřením na hydrataci a rozjasnění. Vhodné jako startovací péče
+              pro všechny typy pleti, včetně citlivé, unavené nebo ucpané.
+            </div>
+          </div>
+          <div class="service">
+            <h4>Intenzivní regenerační ošetření</h4>
+            <div class="meta">90 min • 1 890 Kč</div>
+            <div>
+              Komplexní ošetření zaměřené na intenzivní regeneraci, hydrataci a obnovu pleti.
+              Ideální pro pleť unavenou, dehydratovanou nebo vystavenou stresu.
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="service">
+            <h4>Kúra – hloubková a regenerační péče (3 ošetření)</h4>
+            <div class="meta">60 min • 5 500 Kč</div>
+            <div>
+              Série několika ošetření pro dlouhodobé zlepšení kvality pleti. Ošetření na sebe navazují tak,
+              aby došlo k postupné regeneraci, hydrataci a sjednocení pleti.
+            </div>
+          </div>
+          <div class="service">
+            <h4>Individuální přístup</h4>
+            <div class="meta">Na míru vaší pleti</div>
+            <div>
+              Každá návštěva je přizpůsobena aktuálním potřebám pleti tak, aby výsledek byl co nejlepší.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="container">
+      <h2 class="section-title">Kontakt a rezervace</h2>
+      <p class="section-subtitle">
+        Objednejte se telefonicky nebo přes Instagram. Těšíme se na vaši návštěvu v Hradci Králové.
+      </p>
+
+      <div class="contact-grid">
+        <div class="card contact-card">
+          <h3>Telefon</h3>
+          <p><a href="tel:+420733208131">733 208 131</a></p>
+        </div>
+        <div class="card contact-card">
+          <h3>Instagram</h3>
+          <p><a href="https://instagram.com/nikolaglam" target="_blank" rel="noopener">@nikolaglam</a></p>
+        </div>
+        <div class="card contact-card">
+          <h3>Město</h3>
+          <p>Hradec Králové</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 Glamroom • Kosmetický salon Hradec Králové
+    </div>
+  </footer>
+</body>
+</html>
