@@ -4,357 +4,754 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Glamroom | Kosmetický salon Hradec Králové</title>
-  <meta name="description" content="Glamroom – kosmetický salon v Hradci Králové. Úprava řas a obočí, cílená ošetření a kosmetické ošetření Celestetic. Rezervace na telefonu 733 208 131 nebo Instagramu @nikolaglam." />
+  <meta name="description" content="Glamroom – kosmetický salon v Hradci Králové. Profesionální kosmetická péče, úprava řas a obočí, recenze klientek, galerie a kontakt." />
   <style>
+    :root {
+      --bg: #f8f4fb;
+      --bg-soft: #efe6f7;
+      --card: #ffffff;
+      --text: #1f1530;
+      --muted: #6f5c8d;
+      --primary: #8d5ad7;
+      --primary-dark: #6f3ec0;
+      --line: #dcc9ef;
+      --shadow: 0 18px 45px rgba(108, 65, 177, 0.12);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+    }
+
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      color: #2b2b2b;
-      background: #fffafc;
-      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
     }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.05;
+      margin: 0;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a { color: inherit; }
+
     .container {
-      width: min(1100px, calc(100% - 32px));
+      width: min(1140px, calc(100% - 28px));
       margin: 0 auto;
     }
-    header {
-      background: linear-gradient(135deg, #fff3f8, #f8eefb);
-      padding: 20px 0 70px;
-      border-bottom: 1px solid #f1dbe7;
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(248, 244, 251, 0.92);
+      border-bottom: 1px solid var(--line);
     }
-    nav {
+
+    .nav {
+      min-height: 78px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 52px;
+      justify-content: space-between;
+      gap: 18px;
     }
+
     .brand {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #b05b82;
-    }
-    .nav-links {
       display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 22px;
+      letter-spacing: 0.6px;
+    }
+
+    .brand span:last-child {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
       gap: 18px;
       flex-wrap: wrap;
     }
-    .nav-links a {
+
+    .menu a {
       text-decoration: none;
-      color: #4b3d44;
-      font-weight: 600;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 15px;
     }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      border: 2px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-dark), #b88bf3);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary-dark);
+      border-color: #c9adea;
+    }
+
     .hero {
+      padding: 34px 0 34px;
+    }
+
+    .hero-wrap {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 32px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
       align-items: center;
     }
-    .hero-card {
-      background: rgba(255,255,255,0.82);
-      border: 1px solid #f1dbe7;
-      border-radius: 24px;
-      padding: 40px;
-      box-shadow: 0 12px 36px rgba(166, 110, 142, 0.12);
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 16px;
     }
-    .badge {
-      display: inline-block;
-      padding: 8px 14px;
+
+    .eyebrow::before {
+      content: "";
+      width: 48px;
+      height: 2px;
+      background: #ba9ae6;
       border-radius: 999px;
-      background: #f7dce8;
-      color: #8f4265;
-      font-size: 14px;
-      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-size: clamp(44px, 8vw, 78px);
       margin-bottom: 18px;
     }
-    h1 {
-      font-size: 52px;
-      line-height: 1.08;
-      margin: 0 0 16px;
-      color: #2f1f28;
+
+    .accent {
+      color: var(--primary);
+      font-style: italic;
+      font-weight: 500;
     }
+
     .hero p {
-      font-size: 18px;
-      margin: 0 0 28px;
-      color: #5b4a53;
+      font-size: clamp(18px, 2.6vw, 24px);
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 0 26px;
     }
-    .actions {
+
+    .hero-actions {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
+      margin-bottom: 26px;
     }
-    .btn {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 700;
-      border: 2px solid transparent;
-    }
-    .btn-primary {
-      background: #b05b82;
-      color: white;
-    }
-    .btn-secondary {
-      background: white;
-      border-color: #e8c8d8;
-      color: #8f4265;
-    }
-    .info-box {
-      background: #fff;
-      border: 1px solid #f1dbe7;
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 12px 36px rgba(166, 110, 142, 0.09);
-    }
-    .info-box h3 {
-      margin-top: 0;
-      margin-bottom: 18px;
-      color: #8f4265;
-      font-size: 22px;
-    }
-    .info-item {
-      padding: 14px 0;
-      border-bottom: 1px solid #f5e6ee;
-    }
-    .info-item:last-child { border-bottom: none; }
-    section {
-      padding: 70px 0;
-    }
-    .section-title {
-      font-size: 34px;
-      margin: 0 0 12px;
-      color: #2f1f28;
-    }
-    .section-subtitle {
-      margin: 0 0 32px;
-      color: #6a5b62;
-      max-width: 760px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-    .card {
-      background: white;
-      border: 1px solid #f1dbe7;
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 10px 28px rgba(166, 110, 142, 0.08);
-    }
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: #8f4265;
-      font-size: 22px;
-    }
-    .service {
-      padding: 18px 0;
-      border-bottom: 1px solid #f5e6ee;
-    }
-    .service:last-child { border-bottom: none; }
-    .service h4 {
-      margin: 0 0 6px;
+
+    .rating {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
       font-size: 18px;
-      color: #2f1f28;
-    }
-    .meta {
-      color: #8f4265;
       font-weight: 700;
-      margin-bottom: 8px;
-      font-size: 15px;
     }
-    .contact-grid {
+
+    .rating .stars {
+      color: #d6a642;
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+
+    .hero-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .hero-gallery .large {
+      grid-column: 1 / -1;
+      aspect-ratio: 16 / 10;
+    }
+
+    .photo {
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      background: #fff;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(220, 201, 239, 0.8);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .stats {
+      background: linear-gradient(135deg, var(--primary-dark), #8f61d8);
+      color: white;
+      margin-top: 26px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      padding: 34px 0;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 5vw, 54px);
+      margin-bottom: 8px;
+    }
+
+    .stat span {
+      color: rgba(255,255,255,0.88);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    section {
+      padding: 76px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(34px, 5.2vw, 60px);
+      margin: 0 0 14px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .chips {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .chip {
+      padding: 13px 22px;
+      border-radius: 999px;
+      border: 2px solid #ceb4eb;
+      color: var(--muted);
+      font-weight: 800;
+      background: rgba(255,255,255,0.55);
+    }
+
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 22px;
+      margin-top: 34px;
     }
-    .contact-card a {
-      color: #8f4265;
-      font-weight: 700;
-      text-decoration: none;
-      word-break: break-word;
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      box-shadow: var(--shadow);
     }
-    footer {
-      padding: 28px 0 40px;
-      border-top: 1px solid #f1dbe7;
-      color: #7b6871;
-      text-align: center;
+
+    .card-body {
+      padding: 24px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: #f0e6fa;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .service-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .service-text {
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      border-top: 1px solid #eee5f7;
+      padding-top: 18px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      font-size: 18px;
+    }
+
+    .about-wrap,
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel p {
+      color: var(--muted);
+      font-size: 19px;
+      margin-top: 0;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .feature-list span {
+      border: 2px solid #ceb4eb;
+      padding: 12px 18px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 800;
+      background: rgba(255,255,255,0.5);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .review {
       background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      box-shadow: var(--shadow);
     }
-    @media (max-width: 860px) {
-      .hero,
-      .grid,
-      .contact-grid {
+
+    .review .stars {
+      font-size: 28px;
+      color: #d6a642;
+      margin-bottom: 16px;
+    }
+
+    .review p {
+      font-size: 19px;
+      color: #433754;
+      margin: 0 0 18px;
+      font-style: italic;
+    }
+
+    .review strong {
+      color: var(--primary-dark);
+      font-size: 18px;
+    }
+
+    .contact-cards {
+      display: grid;
+      gap: 18px;
+    }
+
+    .contact-card {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .icon {
+      flex: 0 0 68px;
+      width: 68px;
+      height: 68px;
+      display: grid;
+      place-items: center;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--primary-dark), #a579ea);
+      color: white;
+      font-size: 30px;
+    }
+
+    .contact-card small {
+      display: block;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      font-size: 12px;
+    }
+
+    .contact-card strong,
+    .contact-card a {
+      font-size: 22px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .map-wrap {
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      min-height: 520px;
+      background: white;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      border: 0;
+    }
+
+    footer {
+      padding: 34px 0 48px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      background: rgba(255,255,255,0.55);
+    }
+
+    @media (max-width: 980px) {
+      .hero-wrap,
+      .about-wrap,
+      .contact-wrap,
+      .services-grid,
+      .reviews-grid,
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .services-grid .card:last-child,
+      .reviews-grid .review:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        align-items: flex-start;
+        padding: 12px 0;
+      }
+
+      .menu {
+        gap: 12px;
+        justify-content: flex-end;
+      }
+
+      .menu a {
+        font-size: 14px;
+      }
+
+      .hero-wrap,
+      .stats-grid,
+      .services-grid,
+      .about-wrap,
+      .reviews-grid,
+      .contact-wrap {
         grid-template-columns: 1fr;
       }
-      h1 { font-size: 40px; }
-      .hero-card { padding: 28px; }
-      nav { margin-bottom: 32px; }
+
+      .hero-gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-card {
+        align-items: flex-start;
+      }
+
+      .contact-card strong,
+      .contact-card a {
+        font-size: 19px;
+      }
+
+      section {
+        padding: 58px 0;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="brand">GLAMROOM</div>
-        <div class="nav-links">
-          <a href="#sluzby">Služby</a>
-          <a href="#cenik">Ceník</a>
-          <a href="#kontakt">Kontakt</a>
-        </div>
-      </nav>
-
-      <div class="hero">
-        <div class="hero-card">
-          <div class="badge">Kosmetický salon • Hradec Králové</div>
-          <h1>Krása, péče a sebevědomí na jednom místě.</h1>
-          <p>
-            V salonu Glamroom se zaměřujeme na úpravu řas a obočí, cílená ošetření
-            a profesionální kosmetické ošetření Celestetic. Dopřejte si péči, po které
-            bude vaše pleť svěží, hydratovaná a rozjasněná.
-          </p>
-          <div class="actions">
-            <a class="btn btn-primary" href="tel:+420733208131">Objednat se</a>
-            <a class="btn btn-secondary" href="https://instagram.com/nikolaglam" target="_blank" rel="noopener">Instagram</a>
-          </div>
-        </div>
-
-        <div class="info-box">
-          <h3>Rychlé informace</h3>
-          <div class="info-item"><strong>Salon:</strong><br />Glamroom</div>
-          <div class="info-item"><strong>Město:</strong><br />Hradec Králové</div>
-          <div class="info-item"><strong>Telefon:</strong><br /><a href="tel:+420733208131">733 208 131</a></div>
-          <div class="info-item"><strong>Instagram:</strong><br /><a href="https://instagram.com/nikolaglam" target="_blank" rel="noopener">@nikolaglam</a></div>
-        </div>
+  <div class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#uvod"><span>🌸</span><span>GLAM ROOM</span></a>
+      <div class="menu">
+        <a href="#onas">O nás</a>
+        <a href="#sluzby">Služby & ceník</a>
+        <a href="#recenze">Recenze</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="btn btn-primary" href="tel:+420733208131">Rezervovat termín</a>
       </div>
     </div>
-  </header>
+  </div>
 
-  <section id="sluzby">
-    <div class="container">
-      <h2 class="section-title">Služby</h2>
-      <p class="section-subtitle">
-        Vyberte si z oblíbených procedur pro obočí, řasy, rty i hloubkovou péči o pleť.
-        Každé ošetření je zaměřeno na přirozený, upravený a svěží vzhled.
-      </p>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Úprava řas a obočí</h3>
-          <div class="service">
-            <h4>Laminace obočí</h4>
-            <div class="meta">60 min • 890 Kč</div>
-            <div>
-              Populární metoda úpravy obočí pro plnější a vyrovnanější vzhled. Chloupky se zjemňují,
-              tvarují a vyživují, aby obočí působilo upraveně a přirozeně.
-            </div>
+  <main>
+    <section class="hero" id="uvod">
+      <div class="container hero-wrap">
+        <div>
+          <div class="eyebrow">Hradec Králové · Kosmetický salon</div>
+          <h1>Krása je naše vášeň<br><span class="accent">GLAM ROOM</span></h1>
+          <p>Relaxace a krása v jednom – přijďte si odpočinout a zároveň dopřát své pleti profesionální péči.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:+420733208131">📞 Rezervovat termín</a>
+            <a class="btn btn-secondary" href="#sluzby">Naše služby ↓</a>
           </div>
-          <div class="service">
-            <h4>Barvení řas a obočí + depilace</h4>
-            <div class="meta">30 min • 450 Kč</div>
-            <div>
-              Rychlá a efektivní úprava pro zvýraznění očí a čistý tvar obočí.
-            </div>
+          <div class="rating">
+            <span class="stars">★★★★★</span>
+            <span>4.8 / 5 · 126 hodnocení na Google</span>
           </div>
         </div>
 
-        <div class="card">
-          <h3>Cílená ošetření</h3>
-          <div class="service">
-            <h4>Hydratace rtů</h4>
-            <div class="meta">30 min • 499 Kč</div>
-            <div>
-              Jemná péče o rty se zaměřením na hydrataci, hebkost a zdravý vzhled.
+        <div>
+          <div class="hero-gallery">
+            <div class="photo large">
+              <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=1200&q=80" alt="Kosmetický salon Glamroom" />
+            </div>
+            <div class="photo">
+              <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=80" alt="Kosmetická péče" />
+            </div>
+            <div class="photo">
+              <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80" alt="Péče o pleť" />
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="cenik" style="background:#fff;">
-    <div class="container">
-      <h2 class="section-title">Kosmetické ošetření Celestetic</h2>
-      <p class="section-subtitle">
-        Ošetření s kosmeceutiky Celestetic propojuje kosmetickou péči s aktivními látkami využívanými v dermatologii.
-        Péče je přizpůsobena aktuálnímu stavu pleti a může být zaměřena na čištění, obnovu, zklidnění nebo regeneraci.
-      </p>
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat"><strong>126</strong><span>spokojených klientek</span></div>
+        <div class="stat"><strong>4.8</strong><span>hvězd na Google</span></div>
+        <div class="stat"><strong>10</strong><span>let zkušeností</span></div>
+        <div class="stat"><strong>6</strong><span>dní v týdnu</span></div>
+      </div>
+    </section>
 
-      <div class="grid">
-        <div class="card">
-          <div class="service">
-            <h4>Základní hloubkové ošetření</h4>
-            <div class="meta">60 min • 1 690 Kč</div>
-            <div>
-              Hloubkové čištění pleti se zaměřením na hydrataci a rozjasnění. Vhodné jako startovací péče
-              pro všechny typy pleti, včetně citlivé, unavené nebo ucpané.
-            </div>
-          </div>
-          <div class="service">
-            <h4>Intenzivní regenerační ošetření</h4>
-            <div class="meta">90 min • 1 890 Kč</div>
-            <div>
-              Komplexní ošetření zaměřené na intenzivní regeneraci, hydrataci a obnovu pleti.
-              Ideální pro pleť unavenou, dehydratovanou nebo vystavenou stresu.
-            </div>
+    <section id="onas">
+      <div class="container about-wrap">
+        <div class="section-head">
+          <div class="eyebrow">O nás</div>
+          <h2>Váš kosmetický salon v Hradci Králové</h2>
+          <p>Náš salon je místo, kde se propojuje příjemné prostředí, individuální přístup a kvalitní kosmetická péče na míru.</p>
+          <div class="feature-list">
+            <span>✨ Prémiové produkty</span>
+            <span>🌿 Šetrná péče</span>
+            <span>😌 Relaxační prostředí</span>
+            <span>📍 Hradec Králové</span>
           </div>
         </div>
-
-        <div class="card">
-          <div class="service">
-            <h4>Kúra – hloubková a regenerační péče (3 ošetření)</h4>
-            <div class="meta">60 min • 5 500 Kč</div>
-            <div>
-              Série několika ošetření pro dlouhodobé zlepšení kvality pleti. Ošetření na sebe navazují tak,
-              aby došlo k postupné regeneraci, hydrataci a sjednocení pleti.
-            </div>
-          </div>
-          <div class="service">
-            <h4>Individuální přístup</h4>
-            <div class="meta">Na míru vaší pleti</div>
-            <div>
-              Každá návštěva je přizpůsobena aktuálním potřebám pleti tak, aby výsledek byl co nejlepší.
-            </div>
-          </div>
+        <div class="panel">
+          <p>Specializujeme se na kosmetická ošetření pleti, úpravu řas a obočí a cílenou péči podle aktuálních potřeb vaší pleti.</p>
+          <p>Na web můžeme kdykoliv doplnit další služby, vlastní fotky salonu, skutečné recenze klientek nebo online rezervační formulář.</p>
+          <a class="btn btn-primary" href="#kontakt">Kontaktovat salon</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="kontakt">
-    <div class="container">
-      <h2 class="section-title">Kontakt a rezervace</h2>
-      <p class="section-subtitle">
-        Objednejte se telefonicky nebo přes Instagram. Těšíme se na vaši návštěvu v Hradci Králové.
-      </p>
+    <section id="sluzby">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Služby & ceník</div>
+          <h2>Oblíbená ošetření</h2>
+          <p>Tuhle sekci můžeme průběžně rozšiřovat. Zatím jsem připravil styl, do kterého snadno doplníte další procedury i ceny.</p>
+        </div>
 
-      <div class="contact-grid">
-        <div class="card contact-card">
-          <h3>Telefon</h3>
-          <p><a href="tel:+420733208131">733 208 131</a></p>
+        <div class="chips">
+          <div class="chip">Vše</div>
+          <div class="chip">✨ Obličej</div>
+          <div class="chip">👁️ Řasy & Obočí</div>
+          <div class="chip">💧 Cílená péče</div>
         </div>
-        <div class="card contact-card">
-          <h3>Instagram</h3>
-          <p><a href="https://instagram.com/nikolaglam" target="_blank" rel="noopener">@nikolaglam</a></p>
-        </div>
-        <div class="card contact-card">
-          <h3>Město</h3>
-          <p>Hradec Králové</p>
+
+        <div class="services-grid">
+          <article class="card">
+            <div class="photo" style="border-radius:0; box-shadow:none; border:none;">
+              <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80" alt="Čištění pleti" />
+            </div>
+            <div class="card-body">
+              <div class="tag">Obličej</div>
+              <div class="service-title">Základní hloubkové ošetření</div>
+              <div class="service-text">Hloubkové čištění, hydratace a rozjasnění pleti. Vhodné pro unavenou, citlivou i problematickou pleť.</div>
+              <div class="service-meta"><span>od 1 690 Kč</span><span>60 min</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="photo" style="border-radius:0; box-shadow:none; border:none;">
+              <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80" alt="Laminace obočí" />
+            </div>
+            <div class="card-body">
+              <div class="tag">Řasy & Obočí</div>
+              <div class="service-title">Laminace obočí</div>
+              <div class="service-text">Pro upravený, plnější a přirozený vzhled obočí. Chloupky jsou vyživené, zpevněné a krásně tvarované.</div>
+              <div class="service-meta"><span>890 Kč</span><span>60 min</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="photo" style="border-radius:0; box-shadow:none; border:none;">
+              <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=1200&q=80" alt="Hydratace rtů" />
+            </div>
+            <div class="card-body">
+              <div class="tag">Cílená péče</div>
+              <div class="service-title">Hydratace rtů</div>
+              <div class="service-text">Jemné ošetření rtů se zaměřením na výživu, hladkost a přirozeně zdravý vzhled.</div>
+              <div class="service-meta"><span>499 Kč</span><span>30 min</span></div>
+            </div>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section id="recenze">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Recenze</div>
+          <h2>Co říkají naše klientky</h2>
+          <p>Tady jsou ukázkové recenze. Až budete chtít, stačí mi poslat skutečné texty a já je sem doplním přesně podle vás.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>„Moc příjemné prostředí, krásně odvedená práce a pleť byla po ošetření nádherně svěží. Určitě doporučuji.“</p>
+            <strong>— Petra</strong>
+          </article>
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>„Laminace obočí dopadla přesně podle mých představ. Profesionální přístup, krásný salon a milá komunikace.“</p>
+            <strong>— Tereza</strong>
+          </article>
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <p>„Na kosmetiku chodím pravidelně a vždy odcházím spokojená. Oceňuji individuální přístup a pečlivost.“</p>
+            <strong>— Lucie</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="container contact-wrap">
+        <div>
+          <div class="section-head">
+            <div class="eyebrow">Kontakt</div>
+            <h2>Najdete nás v Hradci Králové</h2>
+            <p>Rezervujte si termín telefonicky nebo přes Instagram. Do sekce kontakt můžeme přidat i otevírací dobu, e-mail a další odkazy.</p>
+          </div>
+
+          <div class="contact-cards">
+            <div class="contact-card">
+              <div class="icon">📍</div>
+              <div>
+                <small>Adresa</small>
+                <strong>Tomkova 911/6, Hradec Králové</strong>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="icon">📞</div>
+              <div>
+                <small>Telefon</small>
+                <a href="tel:+420733208131">+420 733 208 131</a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="icon">📷</div>
+              <div>
+                <small>Instagram</small>
+                <a href="https://instagram.com/nikolaglam" target="_blank" rel="noopener">@nikolaglam</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-wrap">
+          <iframe
+            title="Mapa salonu Glamroom"
+            src="https://www.google.com/maps?q=Tomkova%20911/6%2C%20Hradec%20Kr%C3%A1lov%C3%A9&z=16&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <div class="container">
-      © 2026 Glamroom • Kosmetický salon Hradec Králové
-    </div>
+    <div class="container">© 2026 GLAM ROOM · Kosmetický salon Hradec Králové</div>
   </footer>
 </body>
 </html>
+
